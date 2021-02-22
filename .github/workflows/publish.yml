@@ -20,33 +20,20 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           always-auth: true
           scope: "doptools"
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Parse Version
         id: version
-        uses: booxmedialtd/ws-action-parse-semver@v1
+        uses: doptools/action-parse-semver@main
         with:
-          input_string: "${{ github.ref }}"
-          version_extractor_regex: '\/v(.*)$'
-
-      - name: Config
-        id: config
-        run: |
-          if [ -z "${{ steps.version.outputs.prerelease }}" ]; then
-             echo "Is Release"
-             echo "::set-output name=prerelease::false"
-           else
-              echo "Is Prerelease"
-             echo "::set-output name=prerelease::true"
-           fi
+          version: "${{ github.ref }}"
+          versionRegex: '\/v(.*)$'
 
       - name: Install
-        run: yarn install
+        run: yarn
 
       - name: Build
         run: |
-          yarn version --no-git-tag-version --new-version ${{ steps.version.outputs.fullversion }}
+          yarn version --no-git-tag-version --new-version ${{ steps.version.outputs.full }}
           yarn run build
 
       - name: Publish
@@ -65,4 +52,4 @@ jobs:
           body: |
             Generated Release ${{ github.ref }}
           draft: false
-          prerelease: ${{ steps.config.outputs.prerelease }}
+          prerelease: ${{ steps.version.outputs.isPrerelease }}

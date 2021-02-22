@@ -38,8 +38,6 @@ jobs:
           yarn run build
 
       - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
         run: yarn publish --access public
 
       - name: Create Release

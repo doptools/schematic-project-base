@@ -19,7 +19,7 @@ jobs:
           node-version: "14"
           registry-url: https://npm.pkg.github.com/
           always-auth: true
-          scope: ${{ github.owner }},
+          scope: ${{ github.owner }}
           token: ${{ github.token }}
         
 
@@ -39,6 +39,7 @@ jobs:
           yarn run build
 
       - name: Publish
+       
         run: yarn publish --access public
 
       - name: Create Release

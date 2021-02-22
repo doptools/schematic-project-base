@@ -19,9 +19,9 @@ jobs:
           node-version: "14"
           registry-url: https://npm.pkg.github.com/
           always-auth: true
-          scope: ${{ github.owner }}
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
+          scope: ${{ github.owner }},
+          token: ${{ github.token }}
+        
 
       - name: Parse Version
         id: version

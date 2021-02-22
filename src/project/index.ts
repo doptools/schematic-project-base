@@ -3,19 +3,15 @@ import {
   apply,
   chain,
   mergeWith,
-  move,
-  Rule,
+  renameTemplateFiles, Rule,
   template,
-  renameTemplateFiles,
   url
 } from "@angular-devkit/schematics";
-import { BaseProjectOptions } from "./schema";
 import versions from "../versions.json";
-import { posix as Path } from 'path';
+import { BaseProjectOptions } from "./schema";
 
 
 export default function (options: BaseProjectOptions): Rule {
-
   let name = options.name;
   let scope = '';
   if (name.startsWith('@')) {
@@ -24,9 +20,8 @@ export default function (options: BaseProjectOptions): Rule {
     name = strings.dasherize(p[1]);
 
   }
-  
-  const packageName = (scope ? `@${scope}/` : '') + name;
 
+  const packageName = (scope ? `@${scope}/` : '') + name;
   return chain([
     mergeWith(
       apply(url("./files"), [

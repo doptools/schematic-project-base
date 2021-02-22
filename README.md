@@ -1,1 +1,0 @@
-# schematic-project-base

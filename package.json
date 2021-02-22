@@ -1,6 +1,6 @@
 {
   "name": "@doptools/schematic-project-base",
-  "version": "0.0.0-dev.11",
+  "version": "0.0.0-dev.12",
   "description": "Schematic for generating something",
   "author": "",
   "scripts": {

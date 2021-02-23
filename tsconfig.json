@@ -7,7 +7,12 @@
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
   },
-  "exclude": ["src/*/files*.*/"]
+  "exclude": [
+    "src/*/files*.*/"
+  ]
 }

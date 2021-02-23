@@ -2,10 +2,10 @@
   "private": <%= private %>,
   "name": "<%= packageName %>",
   "version": "0.0.0",
-  "description": "<%= descriptions %>",
+  "description": "<%= description %>",
   "homepage": "<%= homepage %>",
   "author": "<%= author %>",
-  "license": "<%= author %>",
+  "license": "<%= license %>",
   "scope": "<%= scope %>",
   "keywords": [],
   "scripts": {},
@@ -17,6 +17,7 @@
     "url": "<%= bugs %>"
   },
   "devDependencies": {
-    "@doptools/cli": "<%= versions._doptools_cli %>"
+    "@doptools/cli": "<%= versions._doptools_cli %>",
+    "husky": "<%= versions.husky %>"
   }
 }

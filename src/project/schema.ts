@@ -22,5 +22,13 @@ export interface BaseProjectOptions {
    * The repository for the project
    */
   repository?: string;
+  /**
+   * Author
+   */
+  author?: string;
+  /**
+   * License
+   */
+  license?: string;
   [k: string]: unknown;
 }

@@ -10,6 +10,7 @@
     "resolveJsonModule": true,
     "module": "commonjs",
     "moduleResolution": "node",
+    "declaration": true,
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,

@@ -9,10 +9,10 @@ import {
   Tree,
   url
 } from "@angular-devkit/schematics";
-import versions from "../versions.json";
-import { BaseProjectOptions } from "./schema";
 import resolveArgs from 'npm-package-arg';
 import UrlTemplate from 'url-template';
+import versions from "../versions.json";
+import { BaseProjectOptions } from "./schema";
 
 export default function (options: BaseProjectOptions): Rule {
   let name = options.name;

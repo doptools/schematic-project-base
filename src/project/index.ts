@@ -4,7 +4,9 @@ import {
   chain,
   mergeWith,
   renameTemplateFiles, Rule,
+  SchematicContext,
   template,
+  Tree,
   url
 } from "@angular-devkit/schematics";
 import versions from "../versions.json";
@@ -32,15 +34,18 @@ export default function (options: BaseProjectOptions): Rule {
         user: p.hosted?.user,
         project: p.hosted?.project
       }
-      homepage = UrlTemplate.parse(hosted.bugstemplate).expand(info);
-      bugs = UrlTemplate.parse(hosted.docstemplate).expand(info);
+      homepage = UrlTemplate.parse(hosted.docstemplate).expand(info);
       repository = UrlTemplate.parse(hosted.browsetemplate).expand(info);
+      bugs = UrlTemplate.parse(hosted.bugstemplate).expand(info);
     }
   }
 
 
   const packageName = (scope ? `@${scope}/` : '') + name;
   return chain([
+    async (_: Tree, context: SchematicContext) => {
+      context.logger.info('Creating project');
+    },
     mergeWith(
       apply(url("./files"), [
         template({

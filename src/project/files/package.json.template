@@ -9,10 +9,7 @@
   "scope": "<%= scope %>",
   "keywords": [],
   "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "<%= repository %>"
-  },
+  "repository": "<%= repository %>",
   "bugs": {
     "url": "<%= bugs %>"
   },

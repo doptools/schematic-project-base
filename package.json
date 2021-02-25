@@ -18,6 +18,7 @@
   "dependencies": {
     "@angular-devkit/core": "^11.2.1",
     "@angular-devkit/schematics": "^11.2.1",
+    "jsonc": "^2.0.0",
     "jsonc-parser": "^3.0.0",
     "merge-package.json": "^3.1.8",
     "npm-package-arg": "^8.1.1",
